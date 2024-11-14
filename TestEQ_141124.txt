@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Тест на эмоциональный интеллект</title>
+    <style>
+        /* Стили для теста */
+        body {
+            font-family: sans-serif;
+        }
+        .question-container {
+            display: none; /* Скрываем все вопросы, кроме первого */
+        }
+        .question-container.active {
+            display: block; /* Показываем текущий вопрос */
+        }
+        #results {
+            display: none; /* Скрываем результаты до завершения теста */
+        }
+    </style>
+</head>
+<body>
+    <h1>Тест на эмоциональный интеллект</h1>
+    <p>Внимательно прочитайте каждый вопрос и выберите вариант ответа, который наиболее точно отражает ваше поведение или мнение.</p>
+
+    <form id="quiz-form">
+        <div class="question-container active" id="question1">
+            <h2>Вопрос 1</h2>
+            <p>В стрессовой ситуации вы обычно:</p>
+            <label><input type="radio" name="q1" value="a"> Сохраняете спокойствие и стараетесь проанализировать ситуацию.</label><br>
+            <label><input type="radio" name="q1" value="b"> Испытываете сильные эмоции, которые могут повлиять на ваши действия.</label><br>
+            <label><input type="radio" name="q1" value="c"> Обращаетесь за поддержкой к коллегам или близким.</label><br>
+            <label><input type="radio" name="q1" value="d"> Стараетесь отвлечься от проблемы и сосредоточиться на чем-то другом.</label><br>
+        </div>
+        <div class="question-container" id="question2">
+            <h2>Вопрос 2</h2>
+            <p>Когда вы находитесь в плохом настроении, вы:</p>
+            <label><input type="radio" name="q2" value="a"> Осознаете свое состояние и стараетесь его контролировать.</label><br>
+            <label><input type="radio" name="q2" value="b"> Срываетесь на окружающих или замыкаетесь в себе.</label><br>
+            <label><input type="radio" name="q2" value="c"> Делитесь своими переживаниями с близкими людьми.</label><br>
+            <label><input type="radio" name="q2" value="d"> Стараетесь не обращать внимания на свое настроение.</label><br>
+        </div>
+        <div class="question-container" id="question3">
+            <h2>Вопрос 3</h2>
+            <p>Когда вы видите, что кто-то из ваших сотрудников расстроен, вы:</p>
+            <label><input type="radio" name="q3" value="a"> Стараетесь понять причину его расстройства и оказать поддержку.</label><br>
+            <label><input type="radio" name="q3" value="b"> Не обращаете внимания на его эмоции.</label><br>
+            <label><input type="radio" name="q3" value="c"> Советуете ему взять себя в руки и не поддаваться эмоциям.</label><br>
+            <label><input type="radio" name="q3" value="d"> Предлагаете ему отвлечься и заняться чем-то приятным.</label><br>
+        </div>
+        <div class="question-container" id="question4">
+            <h2>Вопрос 4</h2>
+            <p>В конфликтной ситуации вы:</p>
+            <label><input type="radio" name="q4" value="a"> Стараетесь выслушать все стороны и найти компромиссное решение.</label><br>
+            <label><input type="radio" name="q4" value="b"> Настаиваете на своей точке зрения и не готовы к уступкам.</label><br>
+            <label><input type="radio" name="q4" value="c"> Избегаете конфликта и стараетесь уйти от разговора.</label><br>
+            <label><input type="radio" name="q4" value="d"> Пытаетесь сгладить ситуацию и сохранить хорошие отношения.</label><br>
+        </div>
+        <div class="question-container" id="question5">
+            <h2>Вопрос 5</h2>
+            <p>Когда вам нужно мотивировать своих сотрудников, вы:</p>
+            <label><input type="radio" name="q5" value="a"> Апеллируете к их чувству ответственности и профессионализму.</label><br>
+            <label><input type="radio" name="q5" value="b"> Используете материальные или нематериальные поощрения.</label><br>
+            <label><input type="radio" name="q5" value="c"> Вдохновляете их своим примером и энтузиазмом.</label><br>
+            <label><input type="radio" name="q5" value="d"> Создаете комфортную и поддерживающую атмосферу в коллективе.</label><br>
+        </div>
+        <div class="question-container" id="question6">
+            <h2>Вопрос 6</h2>
+            <p>Когда вы ставите перед собой новую цель, вы:</p>
+            <label><input type="radio" name="q6" value="a"> Разрабатываете подробный план действий и следуете ему.</label><br>
+            <label><input type="radio" name="q6" value="b"> Действуете интуитивно, полагаясь на свои чувства и опыт.</label><br>
+            <label><input type="radio" name="q6" value="c"> Советуетесь с коллегами или наставниками, чтобы получить их поддержку.</label><br>
+            <label><input type="radio" name="q6" value="d"> Анализируете возможные риски и препятствия.</label><br>
+        </div>
+        <div class="question-container" id="question7">
+            <h2>Вопрос 7</h2>
+            <p>Вы считаете, что ваши сотрудники более эффективны, когда:</p>
+            <label><input type="radio" name="q7" value="a"> Они четко знают свои задачи и сроки их выполнения.</label><br>
+            <label><input type="radio" name="q7" value="b"> Они чувствуют себя частью команды и получают поддержку от коллег.</label><br>
+            <label><input type="radio" name="q7" value="c"> Они имеют возможность проявить свою инициативу и творческий подход.</label><br>
+            <label><input type="radio" name="q7" value="d"> Они получают регулярную обратную связь о своей работе.</label><br>
+        </div>
+        <div class="question-container" id="question8">
+            <h2>Вопрос 8</h2>
+            <p>Когда вы делаете презентацию для клиентов или инвесторов, вы:</p>
+            <label><input type="radio" name="q8" value="a"> Тщательно готовитель все материалы и стараетесь учесть все детали.</label><br>
+            <label><input type="radio" name="q8" value="b"> Импровизируете и адаптируетесь к реакции аудитории.</label><br>
+            <label><input type="radio" name="q8" value="c"> Уделяете особое внимание установлению контакта с аудиторией.</label><br>
+            <label><input type="radio" name="q8" value="d"> Сосредотачиваетесь на фактах и логике своих аргументов.</label><br>
+        </div>
+        <div class="question-container" id="question9">
+            <h2>Вопрос 9</h2>
+            <p>Вы считаете, что для успешного руководства командой важнее всего:</p>
+            <label><input type="radio" name="q9" value="a"> Четко ставить задачи и контролировать их выполнение.</label><br>
+            <label><input type="radio" name="q9" value="b"> Создавать атмосферу доверия и взаимопонимания в коллективе.</label><br>
+            <label><input type="radio" name="q9" value="c"> Вдохновлять сотрудников на достижение общих целей.</label><br>
+            <label><input type="radio" name="q9" value="d"> Учитывать индивидуальные особенности и потребности каждого сотрудника.</label><br>
+        </div>
+        <div class="question-container" id="question10">
+            <h2>Вопрос 10</h2>
+            <p>Когда вы принимаете важное решение, вы:</p>
+            <label><input type="radio" name="q10" value="a"> Тщательно анализируете все возможные варианты и их последствия.</label><br>
+            <label><input type="radio" name="q10" value="b"> Прислушиваетесь к своей интуиции и внутреннему голосу.</label><br>
+            <label><input type="radio" name="q10" value="c"> Советуетесь с экспертами и доверяете их мнению.</label><br>
+            <label><input type="radio" name="q10" value="d"> Учитываете интересы всех заинтересованных сторон.</label><br>
+        </div>
+        <div class="question-container" id="question11">
+            <h2>Вопрос 11</h2>
+            <p>Когда кто-то вас критикует, вы:</p>
+            <label><input type="radio" name="q11" value="a"> Обижаетесь и воспринимаете критику как личное оскорбление.</label><br>
+            <label><input type="radio" name="q11" value="b"> Игнорируете критику и не обращаете на нее внимания.</label><br>
+            <label><input type="radio" name="q11" value="c"> Защищаетесь и пытаетесь доказать свою правоту.</label><br>
+            <label><input type="radio" name="q11" value="d"> Стараетесь понять, что стоит за критикой, и извлечь из нее пользу.</label><br>
+        </div>
+        <div class="question-container" id="question12">
+            <h2>Вопрос 12</h2>
+            <p>Когда вы совершаете ошибку, вы:</p>
+            <label><input type="radio" name="q12" value="a"> Ругаете себя и долго переживаете из-за своей неудачи.</label><br>
+            <label><input type="radio" name="q12" value="b"> Стараетесь скрыть свою ошибку или переложить ответственность на других.</label><br>
+            <label><input type="radio" name="q12" value="c"> Признаете свою ошибку и стараетесь ее исправить.</label><br>
+            <label><input type="radio" name="q12" value="d"> Анализируете причины ошибки, чтобы не повторять ее в будущем.</label><br>
+        </div>
+        <div class="question-container" id="question13">
+            <h2>Вопрос 13</h2>
+            <p>Когда вам нужно выступить перед большой аудиторией, вы:</p>
+            <label><input type="radio" name="q13" value="a"> Испытываете сильное волнение и неуверенность в себе.</label><br>
+            <label><input type="radio" name="q13" value="b"> Наслаждаетесь вниманием и стараетесь произвести впечатление.</label><br>
+            <label><input type="radio" name="q13" value="c"> Сосредотачиваетесь на содержании своего выступления и стараетесь донести информацию до аудитории.</label><br>
+            <label><input type="radio" name="q13" value="d"> Используете юмор и другие приемы, чтобы заинтересовать аудиторию.</label><br>
+        </div>
+        <div class="question-container" id="question14">
+            <h2>Вопрос 14</h2>
+            <p>Когда вам нужно работать в команде, вы:</p>
+            <label><input type="radio" name="q14" value="a"> Предпочитаете брать на себя роль лидера и руководить процессом.</label><br>
+            <label><input type="radio" name="q14" value="b"> Готовы выполнять любые задачи, которые необходимы для достижения общей цели.</label><br>
+            <label><input type="radio" name="q14" value="c"> Стараетесь создать комфортную и дружескую атмосферу в команде.</label><br>
+            <label><input type="radio" name="q14" value="d"> Уважаете мнение других участников команды и готовы к компромиссам.</label><br>
+        </div>
+        <div class="question-container" id="question15">
+            <h2>Вопрос 15</h2>
+            <p>Когда вы сталкиваетесь с новой и незнакомой ситуацией, вы:</p>
+            <label><input type="radio" name="q15" value="a"> Испытываете тревогу и неуверенность.</label><br>
+            <label><input type="radio" name="q15" value="b"> Видите в этом возможность для обучения и развития.</label><br>
+            <label><input type="radio" name="q15" value="c"> Обращаетесь за помощью к более опытным людям.</label><br>
+            <label><input type="radio" name="q15" value="d"> Действуете осторожно и обдумываете каждый шаг.</label><br>
+        </div>
+        <div class="question-container" id="question16">
+            <h2>Вопрос 16</h2>
+            <p>Когда вам нужно убедить кого-то в своей точке зрения, вы:</p>
+            <label><input type="radio" name="q16" value="a"> Используете логические аргументы и факты.</label><br>
+            <label><input type="radio" name="q16" value="b"> Апеллируете к эмоциям и чувствам собеседника.</label><br>
+            <label><input type="radio" name="q16" value="c"> Ищете точки соприкосновения и общие интересы.</label><br>
+            <label><input type="radio" name="q16" value="d"> Используете свой авторитет или влияние.</label><br>
+        </div>
+		<div class="question-container" id="question17">
+            <h2>Вопрос 17</h2>
+            <p>Когда вы общаетесь с людьми из других культур, вы:</p>
+            <label><input type="radio" name="q17" value="a"> Считаете, что все люди одинаковы, независимо от их культурной принадлежности.</label><br>
+            <label><input type="radio" name="q17" value="b"> Интересуетесь их традициями и обычаями.</label><br>
+            <label><input type="radio" name="q17" value="c"> Стараетесь избегать тем, которые могут вызвать недопонимание.</label><br>
+            <label><input type="radio" name="q17" value="d"> Адаптируете свое поведение к их культурным нормам.</label><br>
+        </div>
+        <div class="question-container" id="question18">
+            <h2>Вопрос 18</h2>
+            <p>Когда вы планируете свой день, вы:</p>
+            <label><input type="radio" name="q18" value="a"> Составляете список дел и строго следуете ему.</label><br>
+            <label><input type="radio" name="q18" value="b"> Оставляете место для спонтанности и гибкости.</label><br>
+            <label><input type="radio" name="q18" value="c"> Учитываете свои приоритеты и цели.</label><br>
+            <label><input type="radio" name="q18" value="d"> Планируете только самые важные дела, остальные оставляете на потом.</label><br>
+        </div>
+        <div class="question-container" id="question19">
+            <h2>Вопрос 19</h2>
+            <p>Когда вы сталкиваетесь с несправедливостью, вы:</p>
+            <label><input type="radio" name="q19" value="a"> Стараетесь не вмешиваться и оставаться в стороне.</label><br>
+            <label><input type="radio" name="q19" value="b"> Открыто выражаете свое негодование.</label><br>
+            <label><input type="radio" name="q19" value="c"> Пытаетесь помочь пострадавшему.</label><br>
+            <label><input type="radio" name="q19" value="d"> Анализируете ситуацию и ищете пути решения проблемы.</label><br>
+        </div>
+        <div class="question-container" id="question20">
+            <h2>Вопрос 20</h2>
+            <p>Когда вам нужно расслабиться и отдохнуть, вы:</p>
+            <label><input type="radio" name="q20" value="a"> Занимаетесь спортом или другими активными видами деятельности.</label><br>
+            <label><input type="radio" name="q20" value="b"> Проводите время с близкими людьми.</label><br>
+            <label><input type="radio" name="q20" value="c"> Читаете книги или смотрите фильмы.</label><br>
+            <label><input type="radio" name="q20" value="d"> Медитируете или занимаетесь йогой.</label><br>
+        </div>
+        <div class="question-container" id="question21">
+            <h2>Вопрос 21</h2>
+            <p>Как вы думаете, что важнее для достижения успеха в карьере?</p>
+            <label><input type="radio" name="q21" value="a"> Высокий уровень интеллекта и профессиональных знаний.</label><br>
+            <label><input type="radio" name="q21" value="b"> Умение строить отношения с людьми и работать в команде.</label><br>
+            <label><input type="radio" name="q21" value="c"> Настойчивость и целеустремленность.</label><br>
+            <label><input type="radio" name="q21" value="d"> Эмоциональная стабильность и устойчивость к стрессу.</label><br>
+        </div>
+        <div class="question-container" id="question22">
+            <h2>Вопрос 22</h2>
+            <p>Как вы реагируете на критику в свой адрес?</p>
+            <label><input type="radio" name="q22" value="a"> Спокойно выслушиваю критику и стараюсь извлечь из нее пользу.</label><br>
+            <label><input type="radio" name="q22" value="b"> Обижаюсь и защищаюсь, даже если критика справедлива.</label><br>
+            <label><input type="radio" name="q22" value="c"> Игнорирую критику и не принимаю ее близко к сердцу.</label><br>
+            <label><input type="radio" name="q22" value="d"> Анализирую критику и стараюсь исправить свои ошибки.</label><br>
+        </div>
+        <div class="question-container" id="question23">
+            <h2>Вопрос 23</h2>
+            <p>Как вы обычно ведете себя в новой компании или коллективе?</p>
+            <label><input type="radio" name="q23" value="a"> Легко знакомлюсь с новыми людьми и адаптируюсь к новой обстановке.</label><br>
+            <label><input type="radio" name="q23" value="b"> Чувствую себя неуверенно и стараюсь не привлекать к себе внимания.</label><br>
+            <label><input type="radio" name="q23" value="c"> Наблюдаю за другими людьми и стараюсь понять их поведение и правила.</label><br>
+            <label><input type="radio" name="q23" value="d"> Активно включаюсь в общение и стараюсь произвести хорошее впечатление.</label><br>
+        </div>
+		<div class="question-container" id="question24">
+            <h2>Вопрос 24</h2>
+            <p>Как вы относитесь к публичным выступлениям?</p>
+            <label><input type="radio" name="q24" value="a"> Испытываю сильное волнение и страх перед публикой.</label><br>
+            <label><input type="radio" name="q24" value="b"> Спокойно отношусь к выступлениям и стараюсь донести свою мысль до аудитории.</label><br>
+            <label><input type="radio" name="q24" value="c"> Получаю удовольствие от публичных выступлений и стараюсь произвести впечатление.</label><br>
+            <label><input type="radio" name="q24" value="d"> Избегаю публичных выступлений, если это возможно.</label><br>
+        </div>
+        <div class="question-container" id="question25">
+            <h2>Вопрос 25</h2>
+            <p>Как вы справляетесь со своими эмоциями в сложных ситуациях?</p>
+            <label><input type="radio" name="q25" value="a"> Теряю контроль над своими эмоциями и могу выйти из себя.</label><br>
+            <label><input type="radio" name="q25" value="b"> Стараюсь подавить свои эмоции и не показывать их окружающим.</label><br>
+            <label><input type="radio" name="q25" value="c"> Обращаюсь за помощью к друзьям или близким.</label><br>
+            <label><input type="radio" name="q25" value="d"> Анализирую ситуацию и стараюсь найти конструктивное решение.</label><br>
+        </div>
+        <div class="question-container" id="question26">
+            <h2>Вопрос 26</h2>
+            <p>Как вы обычно реагируете на конфликты?</p>
+            <label><input type="radio" name="q26" value="a"> Стараюсь избегать конфликтов любой ценой.</label><br>
+            <label><input type="radio" name="q26" value="b"> Активно участвую в конфликте и отстаиваю свою точку зрения.</label><br>
+            <label><input type="radio" name="q26" value="c"> Стараюсь понять позицию другой стороны и найти компромисс.</label><br>
+            <label><input type="radio" name="q26" value="d"> Привлекаю третью сторону для разрешения конфликта.</label><br>
+        </div>
+        <div class="question-container" id="question27">
+            <h2>Вопрос 27</h2>
+            <p>Как вы относитесь к критике в свой адрес?</p>
+            <label><input type="radio" name="q27" value="a"> Воспринимаю критику как личное оскорбление.</label><br>
+            <label><input type="radio" name="q27" value="b"> Игнорирую критику и не обращаю на нее внимания.</label><br>
+            <label><input type="radio" name="q27" value="c"> Стараюсь оправдаться и переложить вину на других.</label><br>
+            <label><input type="radio" name="q27" value="d"> Анализирую критику и стараюсь извлечь из нее уроки.</label><br>
+        </div>
+        <div class="question-container" id="question28">
+            <h2>Вопрос 28</h2>
+            <p>Как вы обычно ведете себя в стрессовых ситуациях?</p>
+            <label><input type="radio" name="q28" value="a"> Паникую и теряю контроль над ситуацией.</label><br>
+            <label><input type="radio" name="q28" value="b"> Замыкаюсь в себе и избегаю общения с людьми.</label><br>
+            <label><input type="radio" name="q28" value="c"> Сохраняю спокойствие и стараюсь найти выход из ситуации.</label><br>
+            <label><input type="radio" name="q28" value="d"> Обращаюсь за помощью к другим людям.</label><br>
+        </div>
+        <div class="question-container" id="question29">
+            <h2>Вопрос 29</h2>
+            <p>Как вы думаете, что важнее для достижения успеха в жизни?</p>
+            <label><input type="radio" name="q29" value="a"> Талант и способности.</label><br>
+            <label><input type="radio" name="q29" value="b"> Упорный труд и настойчивость.</label><br>
+            <label><input type="radio" name="q29" value="c"> Умение общаться с людьми и находить общий язык.</label><br>
+            <label><input type="radio" name="q29" value="d"> Везение и случайные обстоятельства.</label><br>
+        </div>
+        <div class="question-container" id="question30">
+            <h2>Вопрос 30</h2>
+            <p>Как вы относитесь к своим ошибкам?</p>
+            <label><input type="radio" name="q30" value="a"> Считаю, что ошибки - это неизбежная часть жизни.</label><br>
+            <label><input type="radio" name="q30" value="b"> Стараюсь учиться на своих ошибках и не повторять их в будущем.</label><br>
+            <label><input type="radio" name="q30" value="c"> Долго переживаю из-за своих ошибок и корю себя за них.</label><br>
+            <label><input type="radio" name="q30" value="d"> Стараюсь избегать ситуаций, в которых могу совершить ошибку.</label><br>
+        </div>
+
+        <button type="button" id="prev-btn">Назад</button>
+        <button type="button" id="next-btn">Далее</button>
+        <button type="submit" id="submit-btn">Отправить</button>
+    </form>
+
+    <div id="results">
+        <h2>Результаты теста</h2>
+        <p id="total-score"></p>
+        <p id="interpretation"></p>
+        <canvas id="results-chart"></canvas>
+    </div>
+
+    <script>
+        // Обработчики событий для кнопок "Назад" и "Далее"
+        // ... (код для обработки навигации)
+
+        // Обработчик события для отправки формы
+        // ... (код для расчета и отображения результатов)
+    </script>
+</body>
+</html>
