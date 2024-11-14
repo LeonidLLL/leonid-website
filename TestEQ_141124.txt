@@ -283,5 +283,39 @@
         // Обработчик события для отправки формы
         // ... (код для расчета и отображения результатов)
     </script>
+// Обработчик события для отправки формы
+submitBtn.addEventListener('click', () => {
+  let totalScore = 0;
+  
+  // Подсчет баллов
+  for (let i = 1; i <= questionContainers.length; i++) {
+    const selectedAnswer = document.querySelector(`input[name="q${i}"]:checked`);
+    if (selectedAnswer) {
+      const answerValue = selectedAnswer.value;
+      totalScore += scoringKey[0][i][answerValue];
+    }
+  }
+
+  // Интерпретация результатов
+  let interpretation = "";
+  if (81 <= totalScore && totalScore <= 90) {
+    interpretation = "У вас очень высокий уровень эмоционального интеллекта. Вы отлично понимаете и контролируете свои эмоции, а также хорошо разбираетесь в эмоциях других людей.";
+  } else if (61 <= totalScore && totalScore <= 80) {
+    interpretation = "У вас высокий уровень эмоционального интеллекта. Вы хорошо осведомлены о своих эмоциях и умеете эффективно с ними взаимодействовать.";
+  } else if (41 <= totalScore && totalScore <= 60) {
+    interpretation = "У вас средний уровень эмоционального интеллекта. Вам есть куда расти в плане понимания и управления своими эмоциями.";
+  } else if (21 <= totalScore && totalScore <= 40) {
+    interpretation = "У вас низкий уровень эмоционального интеллекта. Вам стоит уделить больше внимания развитию эмоциональной грамотности.";
+  } else if (0 <= totalScore && totalScore <= 20) {
+    interpretation = "У вас очень низкий уровень эмоционального интеллекта. Вам необходимо серьезно поработать над развитием эмоционального интеллекта.";
+  } else {
+    interpretation = "Некорректный результат.";
+  }
+
+  // Отображение результатов
+  document.getElementById('total-score').textContent = `Ваш общий балл: ${totalScore}`;
+  document.getElementById('interpretation').textContent = `Интерпретация результатов: ${interpretation}`;
+  document.getElementById('results').style.display = 'block';
+});
 </body>
 </html>
